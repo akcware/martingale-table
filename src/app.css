@@ -1,0 +1,240 @@
+/* Layout + shared controls. Colour/font variables live in theme.css. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font-ui, system-ui, sans-serif);
+  color: var(--text, #f3ead7);
+  -webkit-font-smoothing: antialiased;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+.num {
+  font-family: var(--font-num, ui-monospace, monospace);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ——— Panel ——— */
+.panel {
+  background: var(--panel, rgba(10, 20, 15, 0.85));
+  border: 1px solid var(--panel-border, rgba(212, 175, 55, 0.25));
+  border-radius: var(--radius, 14px);
+  box-shadow: var(--shadow, 0 10px 30px rgba(0, 0, 0, 0.45));
+  padding: 16px;
+}
+
+.panel-title {
+  margin: 0 0 12px;
+  font-family: var(--font-display, serif);
+  font-size: 0.95rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold, #d4af37);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.panel-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold-deep, #8a6d1f), transparent);
+}
+
+/* ——— Butonlar ——— */
+.btn {
+  appearance: none;
+  border: 1px solid var(--panel-border, rgba(212, 175, 55, 0.3));
+  background: var(--panel-2, rgba(255, 255, 255, 0.06));
+  border-radius: 10px;
+  padding: 9px 14px;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition:
+    transform 0.08s ease,
+    background 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+  white-space: nowrap;
+}
+
+.btn:hover:not(:disabled) {
+  border-color: var(--gold, #d4af37);
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: linear-gradient(180deg, var(--gold-bright, #f5d76e), var(--gold, #d4af37) 55%, var(--gold-deep, #8a6d1f));
+  color: #1b1405;
+  border-color: var(--gold-bright, #f5d76e);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.4),
+    0 6px 18px rgba(212, 175, 55, 0.25);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.btn-primary:hover:not(:disabled) {
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.4),
+    0 6px 26px rgba(245, 215, 110, 0.45);
+}
+
+.btn-danger {
+  border-color: color-mix(in srgb, var(--loss, #d33) 60%, transparent);
+  color: color-mix(in srgb, var(--loss, #d33) 30%, white);
+}
+
+.btn-sm {
+  padding: 5px 9px;
+  font-size: 0.8rem;
+  border-radius: 8px;
+}
+
+.btn.is-active {
+  background: linear-gradient(180deg, var(--gold, #d4af37), var(--gold-deep, #8a6d1f));
+  color: #1b1405;
+  border-color: var(--gold-bright, #f5d76e);
+}
+
+/* ——— Form ——— */
+.field {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.field > label,
+.field .label {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim, #bfb59c);
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.input {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--panel-border, rgba(212, 175, 55, 0.3));
+  border-radius: 10px;
+  padding: 9px 12px;
+  outline: none;
+  font-family: var(--font-num, ui-monospace, monospace);
+  font-variant-numeric: tabular-nums;
+  font-size: 1rem;
+}
+
+.input:focus {
+  border-color: var(--gold, #d4af37);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.18);
+}
+
+.input:disabled {
+  opacity: 0.55;
+}
+
+.input-wrap {
+  position: relative;
+}
+
+.input-wrap .suffix {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-faint, #8a8270);
+  pointer-events: none;
+  font-size: 0.9rem;
+}
+
+.input-wrap .prefix {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-faint, #8a8270);
+  pointer-events: none;
+  font-size: 0.95rem;
+}
+
+.input-wrap:has(.suffix) .input {
+  padding-right: 34px;
+}
+
+.input-wrap:has(.prefix) .input {
+  padding-left: 26px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+input[type='range'] {
+  width: 100%;
+  accent-color: var(--gold, #d4af37);
+}
+
+.hint {
+  font-size: 0.78rem;
+  color: var(--text-faint, #8a8270);
+  line-height: 1.4;
+}
+
+.win-text {
+  color: var(--win, #3ddc84);
+}
+
+.loss-text {
+  color: var(--loss, #ff4d4d);
+}
+
+.gold-text {
+  color: var(--gold, #d4af37);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
