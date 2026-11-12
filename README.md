@@ -2,9 +2,11 @@
 
 **Watch the Martingale betting strategy play out live on a roulette-style table — and see exactly when it busts.**
 
+**▶ Live demo: [akcware.github.io/martingale-table](https://akcware.github.io/martingale-table/)**
+
 Set a bankroll, a base bet and the game's RTP, then let the wheel spin. Every round is animated at real speed, or you can crank it up to thousands of rounds per second and watch the balance chart instead. When the bankroll finally can't cover the next doubled stake, you get a full breakdown: the round you went bust, and the round and amount of your **maximum win** along the way.
 
-![Martingale Table screenshot](docs/screenshot.jpg)
+[![Martingale Table screenshot](docs/screenshot.jpg)](https://akcware.github.io/martingale-table/)
 
 ## Features
 
